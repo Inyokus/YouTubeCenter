@@ -47,7 +47,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         set_identifier: IDENTIFIERS,
         preprocess: {
-            build: {
+            common: {
                 src: PATHS.common.src,
                 dest: PATHS.common.build
             }
@@ -66,21 +66,21 @@ module.exports = function(grunt) {
                     }
                 }]
             },
-            dist: {
+            userscript: {
                 src: PATHS.userscript.build,
                 dest: PATHS.userscript.dist
             },
-            meta: {
+            userscript_meta: {
                 src: PATHS.userscript_meta.src,
                 dest: PATHS.userscript_meta.dist
             },
-            build: {
+            common: {
                 src: PATHS.common.build,
                 dest: PATHS.common.build
             }
         },
         cssmin: {
-            dist: {
+            common: {
                 expand: true,
                 cwd: PATHS.styles.srcDir,
                 src: "*.css",
@@ -129,7 +129,7 @@ module.exports = function(grunt) {
 
 
     // Register function only tasks
-    grunt.registerTask('load-css', function () {
+    grunt.registerTask('load_css', function () {
         grunt.file.expandMapping(PATHS.styles.buildDir + "*.css", "", {ext: "", flatten: true}).forEach(function (file) {
             properties['styles-' + file.dest] = grunt.file.read(file.src);
         });
@@ -137,12 +137,12 @@ module.exports = function(grunt) {
 
 
     // Common tasks
-    grunt.registerTask('for_all', ['shell:git_describe', 'preprocess', 'cssmin', 'load-css']);
-    grunt.registerTask('common', ['for_all', 'replace:build']);
+    grunt.registerTask('for_all', ['shell:git_describe', 'preprocess', 'cssmin', 'load_css']);
+    grunt.registerTask('common', ['for_all', 'replace:common']);
 
     // Userscript tasks
-    grunt.registerTask('userscript_bare', ['set_identifier:userscript', 'for_all', 'replace:dist']);
-    grunt.registerTask('userscript_meta', ['replace:meta']);
+    grunt.registerTask('userscript_bare', ['set_identifier:userscript', 'for_all', 'replace:userscript']);
+    grunt.registerTask('userscript_meta', ['replace:userscript_meta']);
 
     // Public tasks
     grunt.registerTask('firefox', ['set_identifier:firefox', 'common', 'compress:firefox']);
