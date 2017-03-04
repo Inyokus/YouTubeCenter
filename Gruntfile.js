@@ -97,6 +97,23 @@ module.exports = function(grunt) {
                     src: [PATHS.common.build, PATHS.firefox.srcDir + "*"]
                 }
             }
+        },
+        shell: {
+            git_describe: {
+                command: "git describe",
+                options: {
+                    stdout: false,
+                    callback: function (err, stdout, stderr, callback) {
+                        if (err) {
+                            callback(err);
+                            return;
+                        }
+
+                        properties.devnumber = stdout.trim();
+                        callback();
+                    }
+                }
+            }
         }
     });
 
@@ -105,6 +122,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-shell');
     grunt.registerMultiTask('set_identifier', function () {
         properties.identifier = this.data;
     });
@@ -119,7 +137,7 @@ module.exports = function(grunt) {
 
 
     // Common tasks
-    grunt.registerTask('for_all', ['preprocess', 'cssmin', 'load-css']);
+    grunt.registerTask('for_all', ['shell:git_describe', 'preprocess', 'cssmin', 'load-css']);
     grunt.registerTask('common', ['for_all', 'replace:build']);
 
     // Userscript tasks

@@ -47,7 +47,7 @@
 	if (noArgs) {
 		fn += "()";
 	} else {
-		fn += "(true, @identifier@, @devbuild@, @devnumber@)";
+		fn += "(true, @identifier@, @devbuild@, \"@devnumber@\")";
 	}
     script.appendChild(document.createTextNode(fn + ";\n//# sourceURL=" + filename));
     parent.appendChild(script);
