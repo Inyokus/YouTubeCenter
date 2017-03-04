@@ -1,0 +1,11 @@
+{
+  "name": "youtube-center",
+  "version": "3.0.0",
+  "private": true,
+  "devDependencies":  {
+    "grunt": "",
+    "grunt-preprocess": "",
+    "grunt-text-replace": "",
+    "grunt-contrib-cssmin": "^1.0.2"
+  }
+}

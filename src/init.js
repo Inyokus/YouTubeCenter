@@ -279,7 +279,7 @@ ytcenter._config_registered = false;
         }
     });
 
-    /*> page_setup.js */
+    // @include page_setup.js
 
     ytcenter.pageReadinessListener.addEventListener("bodyInteractive", function(){
         var page = ytcenter.getPage();

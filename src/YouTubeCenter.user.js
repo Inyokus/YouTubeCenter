@@ -20,69 +20,8 @@
   IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **/
-// ==UserScript==
-// @id              YouTubeCenter
-// @name            @name@
-// @namespace       http://www.facebook.com/YouTubeCenter
-// @version         @version@
-// @author          Jeppe Rune Mortensen <jepperm@gmail.com>
-// @description     @name@ contains all kind of different useful functions which makes your visit on YouTube much more entertaining.
-// @icon            https://raw.github.com/YePpHa/YouTubeCenter/master/assets/icon48.png
-// @icon64          https://raw.github.com/YePpHa/YouTubeCenter/master/assets/icon64.png
-// @domain          yeppha.github.io
-// @domain          youtube.com
-// @domain          www.youtube.com
-// @domain          gdata.youtube.com
-// @domain          apis.google.com
-// @domain          plus.googleapis.com
-// @domain          googleapis.com
-// @domain          raw.github.com
-// @domain          raw2.github.com
-// @domain          raw.githubusercontent.com
-// @domain          s.ytimg.com
-// @match           http://www.youtube.com/*
-// @match           https://www.youtube.com/*
-// @match           http://youtube.com/*
-// @match           https://youtube.com/*
-// @match           https://yeppha.github.io/downloads/YouTubeCenter.meta.js
-// @match           http://s.ytimg.com/yts/jsbin/*
-// @match           https://s.ytimg.com/yts/jsbin/*
-// @match           https://raw.github.com/YePpHa/YouTubeCenter/master/*
-// @match           https://raw.githubusercontent.com/YePpHa/YouTubeCenter/master/*
-// @match           http://raw.github.com/YePpHa/YouTubeCenter/master/*
-// @match           http://raw.githubusercontent.com/YePpHa/YouTubeCenter/master/*
-// @match           http://apis.google.com/*/widget/render/comments?*
-// @match           https://apis.google.com/*/widget/render/comments?*
-// @match           http://plus.googleapis.com/*/widget/render/comments?*
-// @match           https://plus.googleapis.com/*/widget/render/comments?*
-// @include         http://www.youtube.com/*
-// @include         https://www.youtube.com/*
-// @include         http://youtube.com/*
-// @include         https://youtube.com/*
-// @include         http://apis.google.com/*/widget/render/comments?*
-// @include         https://apis.google.com/*/widget/render/comments?*
-// @include         http://plus.googleapis.com/*/widget/render/comments?*
-// @include         https://plus.googleapis.com/*/widget/render/comments?*
-// @exclude         http://apiblog.youtube.com/*
-// @exclude         https://apiblog.youtube.com/*
-// @exclude         http://*.youtube.com/subscribe_embed?*
-// @exclude         https://*.youtube.com/subscribe_embed?*
-// @grant           GM_getValue
-// @grant           GM_setValue
-// @grant           GM_xmlhttpRequest
-// @grant           GM_log
-// @grant           GM_registerMenuCommand
-// @grant           unsafeWindow
-// @updateURL       @updateURL@
-// @downloadURL     @downloadURL@
-// @updateVersion   @ant-revision@
-// @run-at          document-start
-// @priority        9001
-// @homepageURL     https://github.com/YePpHa/YouTubeCenter/wiki
-// @contributionURL https://github.com/YePpHa/YouTubeCenter/wiki/Donate
-// @supportURL      https://github.com/YePpHa/YouTubeCenter/issues
-// @license         MIT
-// ==/UserScript==
+
+// @include-static user_script_header.js
 
 (function(){
   "use strict";
@@ -219,7 +158,7 @@
       }
     }
 
-    /*> buttons.js */
+    // @include buttons.js
     
     function $Clone(obj) {
       var copy;
@@ -424,9 +363,9 @@
     
     ytcenter.ltr = true;
 
-    /*> UAParser.js */
+    // @include UAParser.js
 
-    /*> report_issue.js */
+    // @include report_issue.js
     
     ytcenter.playerInstance = (function(){
       function setter(func) {
@@ -560,7 +499,7 @@
       }
     };
 
-    /*> spf.js */
+    // @include spf.js
 
     loc = (function(){
       try {
@@ -1247,11 +1186,11 @@
     ytcenter.page = "none";
     ytcenter.feather = false;
 
-    /*> utils.js */
+    // @include utils.js
 
-    /*> embed.js */ 
+    // @include embed.js
 
-    /*> icons.js */
+    // @include icons.js
 
     ytcenter.css = {
       general: "@styles-general@",
@@ -1279,7 +1218,7 @@
       yonez: "@styles-yonez-clean-yt@"*/
     };
 
-    /*> top_scroll_player.js */
+    // @include top_scroll_player.js
 
     ytcenter.videoHistory = (function(){
       var exports = {};
@@ -1567,9 +1506,9 @@
     })();
 
 
-    /*> comments_plus.js */
-    /*> uploader_flag.js */
-    /*> flag_helper.js */
+    // @include comments_plus.js
+    // @include uploader_flag.js
+    // @include flag_helper.js
 
     ytcenter.getPage = function(url){
       url = url || loc.href;
@@ -1725,7 +1664,7 @@
       };
     })();
 
-    /*> thumbnail.js */
+    // @include thumbnail.js
     
     ytcenter.getDebug = function(stringify){
       if (typeof stringify !== "boolean") stringify = true;
@@ -2238,7 +2177,7 @@
       };
     })();
 
-    /*> events.js */
+    // @include events.js
     
     ytcenter._dialogVisible = null
     ytcenter.dialog = function(titleLabel, content, actions, alignment){
@@ -2722,7 +2661,7 @@
       return exports;
     })();
 
-    /*> gui.js */
+    // @include gui.js
 
     ytcenter.listeners = (function(){
       var exports = {};
@@ -2738,7 +2677,7 @@
       return exports;
     })();
 
-    /*> modules.js */
+    // @include modules.js
 
     // @support
     ytcenter.supported = {};
@@ -3235,7 +3174,7 @@
       return a;
     };
 
-    /*> placement_system.js */
+    // @include placement_system.js
     
     ytcenter.descriptionTags = (function(){
       function addTags(list, tags) {
@@ -3303,9 +3242,9 @@
       return exports;
     })();
 
-    /*> language.js */
+    // @include language.js
 
-    /*> default_settings.js */
+    // @include default_settings.js
 
     ytcenter.settings = $Clone(ytcenter._settings);
 	
@@ -3791,12 +3730,12 @@
     ];
 
 
-    /*> settings_panel.js */
-    /*> settings_init.js */
+    // @include settings_panel.js
+    // @include settings_init.js
 
     settingsInit();
 
-    /*> video.js */
+    // @include video.js
     
     ytcenter.site = {};
     ytcenter.site.removeAdvertisement = function(cfg){
@@ -4776,11 +4715,11 @@
       return exports;
     })();
 
-    /*> player.js */
+    // @include player.js
     
     ytcenter.effects = {};
 
-    /*> effect_glow.js */
+    // @include effect_glow.js
     
     ytcenter.parseStreams = function(playerConfig){
       if (playerConfig.url_encoded_fmt_stream_map === "") return [];
@@ -4876,7 +4815,7 @@
       return a;
     };
 
-    /*> class_management.js */
+    // @include class_management.js
 
     ytcenter.intelligentFeed = (function(){
       var exports = {}, observer, config = { attributes: true }, feed;
@@ -4989,7 +4928,7 @@
       return exports;
     })();
 
-    /*> guide.js */
+    // @include guide.js
 
     ytcenter.events.addEvent("ui-refresh", function(){
       if (ytcenter.settings.removeBrandingBanner) {
@@ -5075,7 +5014,7 @@
       }, false);
     };
 
-    /*> init.js */
+    // @include init.js
   };
   // Utils
   function bind(scope, func) {

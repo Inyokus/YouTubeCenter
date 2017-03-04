@@ -1,0 +1,11 @@
+{
+    "name": "YouTube Center Developer Build",
+    "version": "538",
+    "updateURL": "https://github.com/YePpHa/YouTubeCenter/raw/master/dist/YouTubeCenter.meta.js",
+    "downloadURL": "https://github.com/YePpHa/YouTubeCenter/raw/master/dist/YouTubeCenter.user.js",
+    "ant-revision": "155",
+    "identifier": "0",
+    "devbuild": "true",
+    "devnumber": "538",
+    "ant-version": "2.1.6"
+}

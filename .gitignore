@@ -6,3 +6,6 @@
 
 # Some NODEJS
 /node_modules
+
+# Build dir
+grunt/
