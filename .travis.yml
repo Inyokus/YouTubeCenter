@@ -2,3 +2,12 @@ language: nodejs
 before_script:
   - npm install
 script: grunt userscript
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: experiment
+  local_dir: grunt/dist/
+  repo: Inyokus/YTCBuilds
+  target_branch: master

@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     var PATHS = {
         src: "src/",
         build: "grunt/",
-        dist: "grunt/"
+        dist: "grunt/dist/"
     };
     PATHS.styles = {
         srcDir: PATHS.src + ".styles/",
