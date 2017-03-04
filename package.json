@@ -5,7 +5,8 @@
   "devDependencies":  {
     "grunt": "",
     "grunt-preprocess": "",
-    "grunt-text-replace": "",
-    "grunt-contrib-cssmin": "^1.0.2"
+    "grunt-replace": "",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-compress": ""
   }
 }
