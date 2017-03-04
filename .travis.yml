@@ -1,13 +1,17 @@
 language: nodejs
+git:
+  depth: 350
 before_script:
-  - npm install
+- npm install
 script: grunt userscript
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  on:
-    branch: experiment
-  local_dir: grunt/dist/
-  repo: Inyokus/YTCBuilds
-  target_branch: master
+after_success:
+- test "$TRAVIS_PULL_REQUEST" = "false" -a "$TRAVIS_BRANCH" = "experiment" -a -z "$TRAVIS_TAG" || exit 0
+- git clone --depth=1 https://Inyokus:$GITHUB_TOKEN@github.com/Inyokus/YTCBuilds.git deploy
+- cd deploy || exit 1
+- rm -r *
+- cp ../grunt/dist/* .
+- git add -A .
+- git config user.name "Deploy bot"
+- git config user.email deploybot@travis
+- git commit -m "`git -C .. describe` @ `date --utc +%Y-%m-%d\ %H:%M:%S` UTC"
+- git push
