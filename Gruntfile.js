@@ -40,6 +40,12 @@ module.exports = function(grunt) {
             common: {
                 src: c.PATHS.common.build,
                 dest: c.PATHS.common.build
+            },
+            firefox: {
+                expand: true,
+                cwd: c.PATHS.firefox.srcDir,
+                src: "**",
+                dest: c.PATHS.firefox.buildDir
             }
         },
         cssmin: {
@@ -56,9 +62,20 @@ module.exports = function(grunt) {
                     mode: 'zip',
                     archive: c.PATHS.firefox.dist
                 },
-                files: {
-                    src: [PATHS.common.build, PATHS.firefox.srcDir + "*"]
-                }
+                files: [
+                    {
+                        expand: true,
+                        cwd: c.PATHS.build,
+                        src: c.MAIN_ARTIFACT_NAME,
+                        dest: "data/"
+                    }, {
+                        expand: true,
+                        cwd: c.PATHS.firefox.buildDir,
+                        src: "**",
+                        dest: ""
+                    }
+                ]
+
             }
         },
         shell: {
@@ -108,6 +125,7 @@ module.exports = function(grunt) {
     grunt.registerTask('userscript_meta', ['replace:userscript_meta']);
 
     // Public tasks
-    grunt.registerTask('firefox', ['set_identifier:firefox', 'common', 'compress:firefox']);
+    grunt.registerTask('firefox', ['set_identifier:firefox', 'common', 'replace:firefox', 'compress:firefox']);
     grunt.registerTask('userscript', ['userscript_bare', 'userscript_meta']);
+    grunt.registerTask('all', ['firefox', 'userscript']);
 };
