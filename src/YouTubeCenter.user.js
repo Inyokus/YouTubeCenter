@@ -1078,8 +1078,6 @@
       
       return exports;
     })();
-
-    /*> embed.js */
     
     ytcenter.io = {};
     
@@ -1248,6 +1246,10 @@
     ytcenter.icon = {};
     ytcenter.page = "none";
     ytcenter.feather = false;
+
+    /*> utils.js */
+
+    /*> embed.js */ 
 
     /*> icons.js */
 
@@ -3206,8 +3208,6 @@
       
       return exports;
     })();
-
-    /*> utils.js */
 
     ytcenter.getMutationObserver = function(){
       var a;
