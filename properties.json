@@ -13,5 +13,15 @@
     "firefox-target-mobile-min-version": "19.0",
     "firefox-target-mobile-max-version": "20.*",
     "firefox-update-link": "https://raw.github.com/YePpHa/YouTubeCenter/master/dist/YouTubeCenter.xpi",
-    "firefox-update-rdf": "https://raw.github.com/YePpHa/YouTubeCenter/master/dist/firefox-update.rdf"
+    "firefox-update-rdf": "https://raw.github.com/YePpHa/YouTubeCenter/master/dist/firefox-update.rdf",
+    "identifiers" : {
+        "userscript": 0,
+        "chrome": 1,
+        "maxthon": 2,
+        "safari": 4,
+        "opera": 5,
+        "firefox": 6,
+        "scriptish": 7,
+        "chrome_webstore": 8
+    }
 }
