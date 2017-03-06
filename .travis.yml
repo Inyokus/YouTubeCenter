@@ -3,7 +3,7 @@ git:
   depth: 350
 before_script:
 - npm install
-script: grunt userscript
+script: grunt full
 after_success:
 - test "$TRAVIS_PULL_REQUEST" = "false" -a "$TRAVIS_BRANCH" = "experiment" -a -z "$TRAVIS_TAG" || exit 0
 - git clone --depth=1 https://Inyokus:$GITHUB_TOKEN@github.com/Inyokus/YTCBuilds.git deploy

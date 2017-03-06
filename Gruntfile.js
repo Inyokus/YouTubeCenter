@@ -114,7 +114,9 @@ module.exports = function(grunt) {
             properties['styles-' + file.dest] = grunt.file.read(file.src);
         });
     });
-
+    grunt.registerTask('write_version_file', function () {
+        grunt.file.write(c.PATHS.dist + "VERSION", properties.devnumber);
+    });
 
     // Common tasks
     grunt.registerTask('for_all', ['shell:git_describe', 'preprocess', 'cssmin', 'load_css']);
@@ -127,5 +129,8 @@ module.exports = function(grunt) {
     // Public tasks
     grunt.registerTask('firefox', ['set_identifier:firefox', 'common', 'replace:firefox', 'compress:firefox']);
     grunt.registerTask('userscript', ['userscript_bare', 'userscript_meta']);
-    grunt.registerTask('all', ['firefox', 'userscript']);
+    grunt.registerTask('all', "Build for all targets", ['firefox', 'userscript']);
+    grunt.registerTask('version_file', ['shell:git_describe', 'write_version_file']);
+    grunt.registerTask('full', "Build for all targets and generate meta artifacts (used for auto-deployment)",
+        ['all', 'version_file']);
 };
